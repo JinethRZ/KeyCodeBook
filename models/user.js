@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose')//Se requiere o utiliza mongoose en ese archivo de users.js
 
 const userSchema = new mongoose.Schema({
     firstName: {type: String, required: true}, //firstName: nombre del campo en la base de datos. Required: campo obligatorio en base de datos.
