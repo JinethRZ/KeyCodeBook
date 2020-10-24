@@ -2,8 +2,8 @@ const UserModel = require('../models/user')
 
 /**
  * Método para almacenar un nuevo usuario
- * @param {*} req => Todo lo que enviamos desde el body (formulario)
- * @param {*} res => La respuesta que se devolverá
+ * @param {*} req => Todo lo que enviamos desde el body (formulario).
+ * @param {*} res => La respuesta que se devolverá.
  */
 
 exports.create = (req, res) => { //exports.create: para exportar cada uno de los métodos.
@@ -27,7 +27,7 @@ exports.create = (req, res) => { //exports.create: para exportar cada uno de los
         age: req.body.age,
     })
 
-    user.save()
+    user.save()//Guarda la base de datos
     .then((dataUser) => {res.send(dataUser)})
     .catch((error) => {
         res.status(500).send({
