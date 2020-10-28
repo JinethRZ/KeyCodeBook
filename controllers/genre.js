@@ -50,3 +50,40 @@ exports.update = (req, res) => {
         }
     )
 }
+exports.getAll = (req, res) => {
+    GenreModel.find()        
+        .then((genres) => {res.send(genres) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+
+}
+
+exports.getOne = (req, res) => {
+    GenreModel.findById(req.params.id)        
+        .then((genre) => { res.send(genre) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+
+}
+
+exports.deleteOne = (req, res) => {
+    GenreModel.findByIdAndRemove(req.params.id)
+        .then((genre) => { res.send(genre) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+}
