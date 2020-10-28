@@ -13,6 +13,7 @@ conectDB()//Estamos ejecutando el módulo de nuestra conexión a la base de dato
 
 require('./routes/user')(app)//app: la constante del objeto express
 require('./routes/genre')(app)
+require('./routes/book')(app)
 
 app.listen(3000, () => {
     console.log('El servidor se levantó correctamente.')
