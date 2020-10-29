@@ -1,4 +1,5 @@
 const UserModel = require('../models/user')
+const service = require('../services/index')
 
 /**
  * Método para almacenar un nuevo usuario
@@ -117,4 +118,22 @@ exports.deleteOne = (req, res) => {
                 })
             }
         )
+}
+
+exports.login = (req, res) => {
+    UserModel.findOne({email: req.body.email}, (error, dataUser) => { //Se valida el correo.    
+        if(dataUser != null){
+            if(dataUser.password == req.body.password){
+                res.send({token: service.createToken(dataUser)})
+            }else{
+                res.status(400).send({
+                    message: 'Los datos no coinciden.'
+                })
+            }    
+        }else{
+            res.status(400).send({
+                message: 'Los datos no coinciden.'
+            })
+        }
+    })
 }

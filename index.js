@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const {conectDB} = require('./db')
 const app = express() //Se convierte a la constante express en un objeto, por el cual vamos a poder trabajar. 
 
+const port = process.env.PORT || 3000
+
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -15,6 +17,6 @@ require('./routes/user')(app)//app: la constante del objeto express
 require('./routes/genre')(app)
 require('./routes/book')(app)
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('El servidor se levantó correctamente.')
 })
