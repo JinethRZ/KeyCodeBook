@@ -3,7 +3,7 @@ const mongoose = require('mongoose')//Se requiere o utiliza mongoose en ese arch
 const userSchema = new mongoose.Schema({
     firstName: {type: String, required: true}, //firstName: nombre del campo en la base de datos. Required: campo obligatorio en base de datos.
     lastName: {type: String, required: true},
-    email: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     role: {type: String, required: true},
     birthDate: {type: Date},
